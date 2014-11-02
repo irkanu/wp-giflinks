@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: GifLinks
+Plugin Name: WP-GifLinks
 Plugin URI: http://tholman.com/giflinks/
 Description: A simple javascript library used for adding full screen gif action as a hover effect.
 Version: 0.0.1

@@ -15,12 +15,17 @@ License: MIT
 if(!defined('WPINC')){
     die;
 }
-
+/*
+ * Register Shortcode
+ */
 function giflinks_register_shortcode(){
     add_shortcode('giflink', 'giflinks_shortcode');
 }
 add_action('init', 'giflinks_register_shortcode');
 
+/*
+ * Main Function
+ */
 function giflinks_shortcode($atts, $content = null) {
 
     $output = '';
@@ -31,13 +36,16 @@ function giflinks_shortcode($atts, $content = null) {
     ), $atts );
 
     $output .= '<a class="giflink" href="'.esc_attr($giflink_atts['href']).'" data-src="'.esc_attr($giflink_atts['gif']).'">'.do_shortcode($content).'</a>';
-    $output .= '<script>window.onload = function() {var element = document.querySelectorAll(\'.giflink\');GifLinks( element );}</script>';
 
     return $output;
 }
 
+/*
+ * Enqueue Scripts
+ */
+
 add_action('wp_enqueue_scripts', 'giflinks_enqueue_script');
 function giflinks_enqueue_script(){
-    wp_enqueue_script('giflinks-js', plugins_url('js/GifLinks.js',__FILE__));
-    //wp_enqueue_script('giflinks-custom', plugins_url('js/custom.js',__FILE__), array(), '0.0.1', true);
+    wp_enqueue_script('giflinks-js', plugins_url('js/GifLinks.min.js',__FILE__));
+    wp_enqueue_script('giflinks-custom', plugins_url('js/custom.js',__FILE__), array(), '0.0.1', true);
 }

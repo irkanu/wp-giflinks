@@ -38,7 +38,6 @@ function giflinks_shortcode($atts, $content = null) {
     $output .= '<a class="'.esc_attr($giflink_atts['class']).'" href="'.esc_attr($giflink_atts['href']).'" data-src="'.esc_attr($giflink_atts['gif']).'">'.do_shortcode($content).'</a>';
 
     return $output;
-
 }
 
 /*

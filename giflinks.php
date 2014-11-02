@@ -21,16 +21,17 @@ function giflinks_register_shortcode(){
     add_shortcode('giflink', 'giflinks_shortcode');
 }
 
-function giflinks_shortcode($atts, $content = null) {
+function giflinks_shortcode($atts) {
 
     $output = '';
 
     $giflink_atts = shortcode_atts( array(
-        'href'  =>  '',
-        'gif'   =>  ''
+        'href'      =>  '',
+        'gif'       =>  '',
+        'content'   =>  ''
     ), $atts );
 
-    $output .= '<a href="'.wp_kses_post($giflink_atts[$href]).'" data-src="'.wp_kses_post($giflink_atts[$gif]).'">'.do_shortcode($content).'</a>';
+    $output .= '<a href="'.wp_kses_post($giflink_atts[$href]).'" data-src="'.wp_kses_post($giflink_atts[$gif]).'">'.wp_kses_post($giflink_atts[$content]).'</a>';
 
     return $output;
 

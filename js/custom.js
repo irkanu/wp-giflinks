@@ -1,1 +1,1 @@
-(window.onload = function() {var element = document.querySelectorAll('.giflink');GifLinks( element );});
+(window.onload = function() {var element = document.querySelector('a');GifLinks( element );});

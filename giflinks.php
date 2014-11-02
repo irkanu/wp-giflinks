@@ -16,28 +16,28 @@ if(!defined('WPINC')){
     die;
 }
 
-add_action('init', 'giflinks_register_shortcode');
 function giflinks_register_shortcode(){
     add_shortcode('giflink', 'giflinks_shortcode');
 }
+add_action('init', 'giflinks_register_shortcode');
 
-function giflinks_shortcode($atts) {
+function giflinks_shortcode($atts, $content = null) {
 
     $output = '';
 
     $giflink_atts = shortcode_atts( array(
         'href'      =>  '',
-        'gif'       =>  '',
-        'content'   =>  ''
+        'gif'       =>  ''
     ), $atts );
 
-    $output .= '<a href="'.wp_kses_post($giflink_atts[$href]).'" data-src="'.wp_kses_post($giflink_atts[$gif]).'">'.wp_kses_post($giflink_atts[$content]).'</a>';
+    $output .= '<a class="giflink" href="'.esc_attr($giflink_atts['href']).'" data-src="'.esc_attr($giflink_atts['gif']).'">'.do_shortcode($content).'</a>';
+    $output .= '<script>window.onload = function() {var element = document.querySelectorAll(\'.giflink\');GifLinks( element );}</script>';
 
     return $output;
-
 }
 
-add_action('wp_enqueue_scripts', '');
+add_action('wp_enqueue_scripts', 'giflinks_enqueue_script');
 function giflinks_enqueue_script(){
-    wp_enqueue_script('giflinks-js', plugins_url('js/GifLinks.min.js',__FILE__));
+    wp_enqueue_script('giflinks-js', plugins_url('js/GifLinks.js',__FILE__));
+    //wp_enqueue_script('giflinks-custom', plugins_url('js/custom.js',__FILE__), array(), '0.0.1', true);
 }

@@ -37,7 +37,7 @@ function giflinks_shortcode($atts, $content = null) {
         'class'     =>  ''
     ), $atts );
 
-    $output .= '<a class="giflink '.esc_attr($giflink_atts['class']).'" href="'.esc_attr($giflink_atts['href']).'" data-src="'.esc_attr($giflink_atts['gif']).'">'.do_shortcode($content).'</a>';
+    $output .= '<a class="giflink '.esc_attr($giflink_atts['class']).'" href="'.esc_attr($giflink_atts['href']).'" gif-src="'.esc_attr($giflink_atts['gif']).'">'.do_shortcode($content).'</a>';
 
     return $output;
 }
@@ -47,6 +47,6 @@ function giflinks_shortcode($atts, $content = null) {
  */
 add_action('wp_enqueue_scripts', 'giflinks_enqueue_script');
 function giflinks_enqueue_script(){
-    wp_enqueue_script('giflinks-js', plugins_url('js/GifLinks.js',__FILE__));
-    wp_enqueue_script('giflinks-custom', plugins_url('js/WP-GifLinks.js',__FILE__), array(), '0.0.1', true);
+    wp_enqueue_script('giflinks-js', plugins_url('js/giflinks.js',__FILE__));
+    wp_enqueue_script('giflinks-custom', plugins_url('js/giflinks-footer.js',__FILE__), array(), '0.0.1', true);
 }

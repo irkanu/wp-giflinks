@@ -60,7 +60,7 @@ var GifLinks = (function() {
   // Start tracking after preload
   function preloadAndTrack( element ) {
 
-    var awesomeGif = element.getAttribute( 'data-src' );
+    var awesomeGif = element.getAttribute( 'gif-src' );
     if ( awesomeGif ) {
 
       // Load the image
@@ -117,7 +117,7 @@ var GifLinks = (function() {
       'width': '100%',
       'margin': '0px',
       'left': '0px',
-      'top': '0px',
+      'top': '0px'
     }
 
     container = document.createElement( 'div' );
@@ -128,12 +128,12 @@ var GifLinks = (function() {
   // Add the background to the container, and the container to the page!
   function startPartying( element ) {
 
-    var awesomeGif = element.getAttribute( 'data-src' );
+    var awesomeGif = element.getAttribute( 'gif-src' );
     if( awesomeGif ) {
       container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
       container.style[ 'display' ] = 'block';
     } else {
-      console.log( "Sorry, an element doesn't have a data-src!" );
+      console.log( "Sorry, an element doesn't have a gif-src!" );
     }
   }
 

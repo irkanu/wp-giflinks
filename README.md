@@ -1,4 +1,4 @@
-#WP-GifLinks
+#WP GifLinks
 A simple WordPress plugin based on GifLinks by [tholman](https://github.com/tholman/giflinks).
 
 GifLinks is a simple javascript library for adding full screen gif action as a hover effect.
@@ -6,7 +6,7 @@ GifLinks is a simple javascript library for adding full screen gif action as a h
 Check out Tim's awesome [demo](http://tholman.com/giflinks/)!
 
 ###Example
-WP-GifLinks creates a simple shortcode that has a few parameters.
+WP GifLinks creates a simple shortcode that has a few parameters.
 ```
 [giflink class="custom" href="http://example.com" gif="http://example.com/image.gif"]content goes here[/giflink]
 ```
